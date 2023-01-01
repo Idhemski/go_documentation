@@ -336,3 +336,145 @@ default:
 Instead of writing the same code for `__x__` case and `__y__` one, we put them all together in the same line
 
 	the `default` section acts as the `else` of an if-statement
+
+
+## Loops
+
+### Go for loops
+Loops are a good if you want to repeat the same code again and again a specified number of times, the syntax follows this schema : 
+
+```
+for _statement1; statement2; statement3_ {  
+   _// code to be executed for each iteration_  
+}
+```
+
+* statement1 Initializes the loop counter value `(i:=0)`.
+* statement2 Evaluated for each loop iteration. If it evaluates to TRUE, the loop continues. If it evaluates to FALSE, the loop ends.
+`(i<=n)`.
+* statement3 Increases the loop counter value `(i+=x)`.
+
+<span style="color:cyan">We can use the <span style="color:red">`continue`</span> keyword to skip an iteration or more in the loop. or the <span style="color:red">`break`</span> to finish the loop execution. </span> 
+
+	Nesting loops is allowed as well
+
+### The range keyword
+
+We saw only how to iterate through a sequence of numbers, but what if we want to iterate through any iterable ? Then the answer will be the `range` keyword. It works like this ?
+
+```
+for _index, value := array_|_slice_|_map_ {  
+   _// code to be executed for each iteration_  
+}
+```
+
+## Go functions
+
+In Go, defining functions work like this : 
+```
+func _FunctionName_(_param1_ _type_, _param2_ _type_, _param3_ _type_) {  
+  _// code to be executed_  
+   return output (if needed)
+}
+```
+
+### Named return values
+In Go, we can give a name to the output value, and then put a naked return at the end of the function, like this : 
+
+```
+func _FunctionName_(_param1_ _type_, _param2_ _type_) (result _type_) {  
+  _// code to be executed_  
+   return 
+}
+```
+
+### Multiple return values
+We can also define multiple output values (not necessarily) of the same type, then use them the way we want : 
+```
+func _FunctionName_(_param1_ _type_, _param2_ _type_) (result1 _type_, result2 _type_...) {  
+  _// code to be executed_  
+   return 
+}
+```
+
+In order to get their values : 
+```
+a, b, ... := function(params...)
+```
+
+If for some reason reasons we want to omit one of the results, we can do this : 
+```
+_, b, ... := function(params...)
+```
+
+## Structs
+
+<span style="color:yellow">!!! This is not OOP</span>
+A struct (short of structures) is a way to create a collection of instances that shares similar properties.
+It follows this syntax : 
+
+```
+type _struct_name_ struct {  
+  _member1_ _datatype_;  
+  _member2_ _datatype_;  
+  _member3_ _datatype_;  
+  ...  
+}
+```
+
+To declare them and set paremeters : 
+
+```
+var name Instance
+
+Instance.member1 = value1;
+.
+.
+.
+```
+
+	You can also pass them as functions' parameters
+
+## Go maps
+
+Maps are a powerful way to store data into key value pairs that do not allow duplicates. 
+To access to the length of the map we can use the `len` function.
+To create a map we can use this syntax : 
+```
+var a = map[KeyType]ValueType{k1:v1, k2:v2....}
+// (or using the := affectation)
+```
+
+	Using the `make` function we can create maps : `make(map[type]string)`
+
+### Accessing map elements
+
+This way : 
+```
+value = map_name[key]
+```
+
+### Updating and adding map elements
+
+```
+map_name[key] = value
+```
+
+### Deleting elements from map
+we use the `delete` function 
+```
+delete(map_name, key)
+```
+
+### Getting the key and value from map
+
+In order to check the existence of a certain key exists in the map : 
+```
+val, key_existence (boolean) := map[key]
+```
+
+	We can use the range keyword in order to loop through the key,value iterable
+
+
+
+# THANK YOU FOR READING !!!
